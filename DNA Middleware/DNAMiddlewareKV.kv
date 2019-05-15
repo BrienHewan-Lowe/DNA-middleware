@@ -1,0 +1,159 @@
+#This is the main window screen where input will
+#be entered
+<MainWindow>:
+    name: "main"
+    BoxLayout:
+        size_hint: .90, .85
+        pos_hint: {'center_x': .5 , 'center_y': .5}
+        orientation:'vertical'
+        canvas.before:
+            Color:
+                rgba: 30/255,30/255,30/255,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: .2
+            Label:
+                text: " Insert 2 DNA Sequences To Compare"
+                font_size: 40
+                text_size:self.size
+                halign:'left'
+                valign:'bottom'
+                font_name: 'ArialMTStd-Medium'
+                #color: 0, 0, 0, 1
+
+        BoxLayout:
+            size_hint: .98, .7
+            pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: ""
+                Label:
+                    text: "Sequence Identifier:"
+                    font_name: 'ArialMTStd-Medium'
+                    font_size: 34
+                    text_size:self.size
+                    halign:'left'
+                    valign:'middle'
+                Label:
+                    text: "Nucleotide Sequence:"
+                    font_name: 'ArialMTStd-Medium'
+                    font_size: 34
+                    text_size:self.size
+                    halign:'left'
+                    valign:'middle'
+                Label:
+                    text: "Quality Score Identifier Line:"
+                    font_name: 'ArialMTStd-Medium'
+                    font_size: 34
+                    text_size:self.size
+                    halign:'left'
+                    valign:'middle'
+                Label:
+                    text: "Quality Scores:"
+                    font_name: 'ArialMTStd-Medium'
+                    font_size: 34
+                    text_size:self.size
+                    halign:'left'
+                    valign:'middle'
+
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: "Sequence 1"
+                    text_size:self.size
+                    halign:'left'
+                    valign:'bottom'
+                    size_hint_y: .3
+                    font_name: 'ArialMTStd-Medium'
+                    font_size: 34
+                TextInput:
+                    id: seq_ID_1
+                    size_hint_y: .3
+                TextInput:
+                    id: nuc_Seq_1
+                    size_hint_y: .3
+
+                #This TextInput Widget is set to be read only,
+                #so no text will be able to be inputted.
+                #Set the readonly property to False or erase
+                #it to be able to input text
+                TextInput:
+                    id: quality_ScoreID_1
+                    size_hint_y: .3
+                    text:"+"
+                    readonly: True
+                TextInput:
+                    id: quality_Score_1
+                    size_hint_y: .3
+
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text:"Sequence 2"
+                    text_size:self.size
+                    halign:'left'
+                    valign:'bottom'
+                    size_hint_y: .3
+                    font_name: 'ArialMTStd-Medium'
+                    font_size: 34
+                TextInput:
+                    id: seq_ID_2
+                    size_hint_y: .3
+                TextInput:
+                    id: nuc_Seq_2
+                    size_hint_y: .3
+
+                #This TextInput Widget is set to be read only,
+                #so no text will be able to be inputted.
+                #Set the readonly property to False or erase
+                #it to be able to input text
+                TextInput:
+                    id: quality_ScoreID_2
+                    size_hint_y: .3
+                    text:"+"
+                    readonly: True
+                TextInput:
+                    id: quality_Score_2
+                    size_hint_y: .3
+
+        BoxLayout:
+            size_hint: .9, .5
+            pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+
+            #This Button widget will create the SUBMIT button
+            Button:
+                id: submit_Button
+                text:"SUBMIT"
+                font_name: 'ArialMTStd-Medium'
+                size_hint_y: .3
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release:
+                    root.press_submit()
+            Label:
+                text: ""
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint: .1, .3
+
+            #This Button widget creates the CLEAR button
+            #which clears all text put in the input boxes
+            Button:
+                id: clear_input
+                text: "CLEAR"
+                font_name: 'ArialMTStd-Medium'
+                size_hint_y: .3
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release:
+                    seq_ID_1.text = ""
+                    seq_ID_2.text = ""
+                    nuc_Seq_1.text = ""
+                    nuc_Seq_2.text = ""
+                    quality_Score_1.text = ""
+                    quality_Score_2.text = ""
+
+
+

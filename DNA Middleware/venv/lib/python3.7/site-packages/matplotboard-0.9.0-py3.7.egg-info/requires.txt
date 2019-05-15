@@ -1,0 +1,6 @@
+matplotlib
+Jinja2
+Markdown
+python-markdown-math
+namedlist
+pathos
